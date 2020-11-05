@@ -9,9 +9,7 @@ jobs:
     steps:
       - name: Read schema file
         id: schema
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./schema.graphql
+        run: echo ::set-output name=content::$(cat schema.graphql)
 
       - name: Report schema changes
         uses: fjogeleit/http-request-action@master
