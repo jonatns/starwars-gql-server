@@ -1,7 +1,12 @@
+type Dummy {
+  name: String
+}
+
 """
 The query type, represents all of the entry points into our object graph
 """
 type Query {
+  dummy: Dummy
   hero(episode: Episode): Character
   reviews(episode: Episode!): [Review]
   search(text: String): [SearchResult]
