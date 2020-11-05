@@ -3,6 +3,7 @@ import { printSchema } from "graphql";
 
 export default {
   serverWillStart({ schema }) {
+    return;
     let body = JSON.stringify({
       schema: printSchema(schema)
     });
