@@ -30,7 +30,7 @@ export default {
       .on("error", console.error)
       .end(body);
   },
-  requestDidStart({ request, schema }) {
+  requestDidStart({ request }) {
     if (request.operationName !== "IntrospectionQuery") {
       let body = JSON.stringify({
         query: request.query

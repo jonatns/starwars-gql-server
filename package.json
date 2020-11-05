@@ -4,7 +4,8 @@
   "description": "GraphQL Server setup with an example Star Wars schema",
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "graphql:dump": "graphql-inspector introspect ./data/schema.js --require @babel/register --write schema.graphql"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/apollographql/starwars-server#readme",
   "dependencies": {
-    "@graphql-inspector/core": "2.3.0",
+    "@graphql-inspector/cli": "2.3.0",
     "apollo-server-express": "^2.15.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -41,5 +42,10 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/node": "^7.10.4",
     "nodemon": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn graphql:dump && git add schema.graphql"
+    }
   }
 }
