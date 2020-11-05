@@ -8,12 +8,12 @@ jobs:
 
     steps:
       - uses: pCYSl5EDgo/cat@master
-        id: schema
+        id: readSchema
         with:
-          path: schema.graphql
+          path: ./schema.graphql
 
       - uses: fjogeleit/http-request-action@master
         with:
           url: "https://da75c4cc9006.ngrok.io/api/transactions/report"
           method: "POST"
-          data: "{ schema: ${{ steps.schema.outputs.text }} }"
+          data: "{ schema: ${{ steps.readSchema.outputs.text }} }"
