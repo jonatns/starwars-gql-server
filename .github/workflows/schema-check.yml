@@ -11,7 +11,7 @@ jobs:
         id: schema
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./package.json
+          path: ./schema.graphql
 
       - name: Report schema changes
         uses: fjogeleit/http-request-action@master
