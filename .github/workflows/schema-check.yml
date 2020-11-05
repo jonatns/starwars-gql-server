@@ -7,12 +7,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: juliangruber/read-file-action@v1
+      - name: Read schema file
         id: schema
+        uses: juliangruber/read-file-action@v1
         with:
           path: ./schema.graphql
 
-      - uses: fjogeleit/http-request-action@master
+      - name: Report schema changes
+        uses: fjogeleit/http-request-action@master
         with:
           url: "https://da75c4cc9006.ngrok.io/api/transactions/report"
           method: "POST"
