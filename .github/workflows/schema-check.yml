@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Read schema file
         id: schema
         run: echo ::set-output name=content::$(cat schema.graphql)
