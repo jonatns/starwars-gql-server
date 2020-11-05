@@ -12,7 +12,7 @@ jobs:
 
       - name: Read schema file
         id: schema
-        run: echo ::set-output name=content::$(cat schema.graphql)
+        run: cat ./schema.graphql
 
       - name: Report schema changes
         uses: fjogeleit/http-request-action@master
