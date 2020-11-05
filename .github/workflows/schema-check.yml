@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: pCYSl5EDgo/cat@master
-        id: readSchema
+      - uses: juliangruber/read-file-action@v1
+        id: schema
         with:
           path: ./schema.graphql
 
@@ -16,4 +16,4 @@ jobs:
         with:
           url: "https://da75c4cc9006.ngrok.io/api/transactions/report"
           method: "POST"
-          data: "{ schema: ${{ steps.readSchema.outputs.text }} }"
+          data: "{ schema: ${{ steps.schema.outputs.content }} }"
