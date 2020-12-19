@@ -4,12 +4,13 @@ import { printSchema } from "graphql";
 export default {
   serverWillStart({ schema }) {
     let body = JSON.stringify({
+      key: 'YOUR_OBSERVEQL_API_KEY',
       schema: printSchema(schema)
     });
 
     let options = {
       hostname: "da75c4cc9006.ngrok.io",
-      path: "/api/schemas",
+      path: "/api/registries",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
