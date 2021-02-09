@@ -3,6 +3,7 @@ import { printSchema } from "graphql";
 
 export default {
   serverWillStart({ schema }) {
+    return;
     let body = JSON.stringify({
       key: 'YOUR_OBSERVEQL_API_KEY',
       schema: printSchema(schema)
